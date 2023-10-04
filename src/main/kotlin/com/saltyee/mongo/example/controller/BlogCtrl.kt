@@ -29,6 +29,6 @@ class BlogCtrl(@Autowired val repo: BlogRepository) {
     @PostMapping("/blog")
     fun postBlog(@RequestBody request: NewBlogRequest): Blog {
         val blog = Blog.from(request)
-        return repo.insert(blog)
+        return repo.save(blog)
     }
 }
