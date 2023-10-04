@@ -1,5 +1,6 @@
 package com.saltyee.mongo.example.controller
 
+import cn.dev33.satoken.annotation.SaCheckLogin
 import cn.dev33.satoken.stp.StpUtil
 import io.github.oshai.kotlinlogging.KotlinLogging
 import org.springframework.web.bind.annotation.GetMapping
@@ -19,5 +20,11 @@ class HomeCtrl {
         StpUtil.login(10001)
         logger.info { StpUtil.getTokenInfo() }
         return "Hello Sa Token!"
+    }
+
+    @SaCheckLogin
+    @GetMapping("/check-login")
+    fun checkLogin(): String {
+        return "I am logged In!"
     }
 }
