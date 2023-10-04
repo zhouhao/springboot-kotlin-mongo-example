@@ -23,6 +23,9 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-data-mongodb")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
+    implementation("cn.dev33:sa-token-spring-boot3-starter:1.36.0")
+    implementation("cn.dev33:sa-token-jwt:1.36.0")
+    implementation("io.github.oshai:kotlin-logging-jvm:5.1.0")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
