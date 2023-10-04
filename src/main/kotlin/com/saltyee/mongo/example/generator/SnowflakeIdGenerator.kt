@@ -38,9 +38,7 @@ class SnowflakeIdGenerator(dcId: Long, mId: Long) : IdGenerator {
 
         private const val TIMESTAMP_LEFT = DATACENTER_LEFT + DATACENTER_BIT
 
-        fun getDefault(): SnowflakeIdGenerator {
-            return SnowflakeIdGenerator(1, 1)
-        }
+        val DEFAULT = SnowflakeIdGenerator(1, 1)
     }
 
     private var datacenterId: Long = 0 // 数据中心

@@ -9,7 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Field
 @Document("blog")
 data class Blog(
     @Id
-    val id: Long = SnowflakeIdGenerator.getDefault().nextId(),
+    val id: Long = SnowflakeIdGenerator.DEFAULT.nextId(),
     val title: String = "",
     val content: String = "",
     @Field("author_id")
