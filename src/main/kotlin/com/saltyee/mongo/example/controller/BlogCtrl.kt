@@ -20,9 +20,9 @@ class BlogCtrl(@Autowired val repo: BlogRepository) {
     }
 
     @GetMapping("/blog/{id}")
-    fun getBlogById(@PathVariable("id") id: String): ResponseEntity<Blog> {
-        val blog = repo.findByBlogId(id)
-        return if (blog != null) ResponseEntity.ok(blog) else ResponseEntity
+    fun getBlogById(@PathVariable("id") id: Long): ResponseEntity<Blog> {
+        val blog = repo.findById(id)
+        return if (blog.isPresent) ResponseEntity.ok(blog.get()) else ResponseEntity
             .notFound().build()
     }
 
