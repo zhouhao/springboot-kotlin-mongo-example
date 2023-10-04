@@ -1,6 +1,7 @@
 package com.saltyee.mongo.example.controller
 
 import cn.dev33.satoken.annotation.SaCheckLogin
+import cn.dev33.satoken.stp.StpUtil
 import com.saltyee.mongo.example.domain.NewBlogRequest
 import com.saltyee.mongo.example.entity.Blog
 import com.saltyee.mongo.example.repository.BlogRepository
@@ -30,7 +31,7 @@ class BlogCtrl(@Autowired val repo: BlogRepository) {
 
     @PostMapping("/blog")
     fun postBlog(@RequestBody request: NewBlogRequest): Blog {
-        val blog = Blog.from(request)
+        val blog = Blog.from(request, StpUtil.getLoginIdAsLong())
         return repo.save(blog)
     }
 }

@@ -13,15 +13,15 @@ data class Blog(
     val title: String = "",
     val content: String = "",
     @Field("author_id")
-    val authorId: String = "",
+    val authorId: Long,
     val createdAt: Long = System.currentTimeMillis(),
     val updatedAt: Long = System.currentTimeMillis(),
 ) {
     companion object {
-        fun from(newBlogRequest: NewBlogRequest) = Blog(
+        fun from(newBlogRequest: NewBlogRequest, authorId: Long) = Blog(
             title = newBlogRequest.title,
             content = newBlogRequest.content,
-            authorId = "1",
+            authorId = authorId,
         )
     }
 }
