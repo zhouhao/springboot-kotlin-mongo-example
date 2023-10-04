@@ -1,5 +1,6 @@
 package com.saltyee.mongo.example.controller
 
+import cn.dev33.satoken.annotation.SaCheckLogin
 import com.saltyee.mongo.example.domain.NewBlogRequest
 import com.saltyee.mongo.example.entity.Blog
 import com.saltyee.mongo.example.repository.BlogRepository
@@ -7,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
+@SaCheckLogin
 @RestController
 class BlogCtrl(@Autowired val repo: BlogRepository) {
     @GetMapping("/blogs")
